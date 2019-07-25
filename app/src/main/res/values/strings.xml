@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">TestItunesApp</string>
+
+    <!--MainActivity layout strings-->
+    <string name="edit_text_hint">Поиск</string>
+    <string name="search_button">Искать</string>
+
+    <!--MainActivity strings-->
+    <string name="no_network_connection">Отсутствует сетевое соединение</string>
+    <string name="search_request_is_empty">Поисковый запрос пуст</string>
+    <string name="nothing_found">Ничего не найдено</string>
+
+    <!--DetailcActivity strings-->
+    <string name="songs">songs</string>
+    <string name="track_has_no_music_url">Трэк не доступен для воспроизведения</string>
+    <string name="music_playback_error">Ошибка воспроизведения трека</string>
 </resources>
