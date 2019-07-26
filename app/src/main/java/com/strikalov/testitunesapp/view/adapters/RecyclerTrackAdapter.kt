@@ -8,13 +8,19 @@ import com.strikalov.testitunesapp.R
 import com.strikalov.testitunesapp.model.entity.Track
 import kotlinx.android.synthetic.main.recycler_track_item.view.*
 
-class RecyclerTrackAdapter(var trackList: List<Track> = ArrayList()) : RecyclerView.Adapter<RecyclerTrackAdapter.ViewHolder>() {
+/**
+ * Адаптер для RecyclerView, преобразует список обьектов класса Track
+ * в элементы списка RecyclerView по макету R.layout.recycler_track_item
+ */
+class RecyclerTrackAdapter(var trackList: List<Track> = ArrayList())
+    : RecyclerView.Adapter<RecyclerTrackAdapter.ViewHolder>() {
 
 
     interface OnItemClickListener{
         fun onItemClicked(position: Int)
     }
 
+    //Слушатель, чтобы реагировать на клики по элементам RecyclerView представляющим музыкальный трэк
     var onItemClickListener: OnItemClickListener? = null
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -31,6 +37,10 @@ class RecyclerTrackAdapter(var trackList: List<Track> = ArrayList()) : RecyclerV
 
         fun bindItem(track: Track){
 
+            /**
+             * Если песня сейчас проигрывается, показываем рядом картинку stop,
+             * если песня не проигрывается показываем рядом картинку play
+             */
             if(track.isPlaying){
                 itemView.image_track_status.setImageResource(R.drawable.ic_action_stop)
             }else{

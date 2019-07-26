@@ -9,12 +9,18 @@ import com.strikalov.testitunesapp.R
 import com.strikalov.testitunesapp.model.entity.Album
 import kotlinx.android.synthetic.main.recycler_album_item.view.*
 
-class RecyclerAlbumAdapter(var albumList: List<Album> = ArrayList()) : RecyclerView.Adapter<RecyclerAlbumAdapter.ViewHolder>() {
+/**
+ * Адаптер для RecyclerView, преобразует список обьектов класса Album
+ * в элементы списка RecyclerView по макету R.layout.recycler_album_item
+ */
+class RecyclerAlbumAdapter(var albumList: List<Album> = ArrayList())
+    : RecyclerView.Adapter<RecyclerAlbumAdapter.ViewHolder>() {
 
     interface OnItemClickListener{
         fun onItemClicked(album: Album)
     }
 
+    //Слушатель, чтобы реагировать на клики по элементам RecyclerView представляющим музыкальный альбом
     var onItemClickListener: OnItemClickListener? = null
 
 

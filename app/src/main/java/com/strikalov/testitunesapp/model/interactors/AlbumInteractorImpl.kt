@@ -7,6 +7,10 @@ import java.util.*
 
 class AlbumInteractorImpl(val networkRepository: NetworkRepository): AlbumInteractor {
 
+    /**
+     * Получаем от networkRepository списов альбомов, сортируем его и возвращаем отсортированный
+     * список
+     */
     override fun downloadSortedAlbumList(term: String): Observable<List<Album>> {
 
         return networkRepository.downloadAlbumList(term)

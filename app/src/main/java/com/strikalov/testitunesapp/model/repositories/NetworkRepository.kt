@@ -6,8 +6,16 @@ import io.reactivex.Observable
 
 interface NetworkRepository {
 
+    /**
+     * Метод возвращает список музыкальных альбомов полученных от сервера и преобразованных
+     * в сущности бизнес-логики
+     */
     fun downloadAlbumList(term: String): Observable<MutableList<Album>>
 
+    /**
+     * Метод возвращает список музыкальных трэков полученных от сервера и преобразованных
+     * в сущности бизнес-логики
+     */
     fun downloadTrackList(albumId: String): Observable<MutableList<Track>>
 
 }

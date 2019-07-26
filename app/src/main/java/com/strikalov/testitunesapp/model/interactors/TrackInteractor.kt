@@ -5,6 +5,9 @@ import io.reactivex.Observable
 
 interface TrackInteractor {
 
+    /**
+     * Метод возвращает список музыкальный трэков обернутый в Observable от RxJava
+     */
     fun downloadTrackList(albumId: String): Observable<List<Track>>
 
 }

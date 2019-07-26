@@ -10,6 +10,11 @@ import io.reactivex.schedulers.Schedulers
 
 class NetworkRepositoryImpl(val networkApi: NetworkApi): NetworkRepository {
 
+
+    /**
+     * Метод получает от NetworkApi список обьектов класса CollectionJson
+     * и возвращает список обьектов класса Album
+     */
     override fun downloadAlbumList(term: String): Observable<MutableList<Album>> {
 
         return networkApi.downloadCollectionResult(term)
@@ -28,6 +33,10 @@ class NetworkRepositoryImpl(val networkApi: NetworkApi): NetworkRepository {
             }.subscribeOn(Schedulers.io())
     }
 
+    /**
+     * Метод получает от NetworkApi список обьектов класса CollectionJson
+     * и возвращает список обьектов класса Album
+     */
     override fun downloadTrackList(albumId: String): Observable<MutableList<Track>> {
         return networkApi.downloadTrackResult(albumId)
             .map {
@@ -47,6 +56,10 @@ class NetworkRepositoryImpl(val networkApi: NetworkApi): NetworkRepository {
             }.subscribeOn(Schedulers.io())
     }
 
+    /**
+     * Метод получает на вход обьект класса TrackJson,
+     * и на его основе, делая необходимые преобразования, возвращает обьект класса Track
+     */
     private fun createAlbum(collectionJson: CollectionJson): Album{
 
         val cuttingIndex: Int = collectionJson.releaseDate.indexOf('-')
@@ -69,6 +82,10 @@ class NetworkRepositoryImpl(val networkApi: NetworkApi): NetworkRepository {
 
     }
 
+    /**
+     * Метод получает на вход обьект класса TrackJson,
+     * и на его основе, делая необходимые преобразования, возвращает обьект класса Track
+     */
     private fun createTrack(trackJson: TrackJson): Track{
         return Track(
             trackName = trackJson.trackName,

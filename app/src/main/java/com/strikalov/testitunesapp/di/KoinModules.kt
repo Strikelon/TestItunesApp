@@ -12,11 +12,18 @@ import com.strikalov.testitunesapp.viewmodel.MainViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
+/**
+ * Создаем модуль для инъекции зависимостей с помощью библиотеки Koin
+ */
 val appModule = module {
+
+    //Singletons
     single { NetworkApi() }
     single<NetworkRepository> { NetworkRepositoryImpl(get()) }
     single<AlbumInteractor> { AlbumInteractorImpl(get()) }
     single<TrackInteractor> { TrackInteractorImpl(get()) }
+
+    //ViewModels
     viewModel { MainViewModel(get()) }
     viewModel { DetailViewModel(get()) }
 }
